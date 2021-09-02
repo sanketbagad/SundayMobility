@@ -28,6 +28,8 @@ function Registration() {
             setFlag(false);
             localStorage.setItem("SubmissionEmail", JSON.stringify(email));
             localStorage.setItem("SubmissionPassword", JSON.stringify(password));
+            localStorage.setItem("SubmissionName",JSON.stringify(name) )
+            localStorage.setItem("SubmissionMobile", JSON.stringify(mobile))
             console.log("Saved in Local Storage");
 
             setLogin(!login)
@@ -75,31 +77,31 @@ function Registration() {
                 <Col>
                 <Image src="images/1.jpg" fluid />
                 </Col>
-                <Col>
-            {info ? <div> {login ? <form onSubmit={handleFormSubmit}>
+                <Col className="formDesign">
+            {info ? <div > {login ? <form onSubmit={handleFormSubmit}>
                
                 <h3>Register</h3>
 
                 <div className="form-group">
                     <label>Name</label>
-                    <input type="text" className="form-control" placeholder="Enter email" onChange={(event) => setName(event.target.value)} />
+                    <input type="text" className="form-control" placeholder="Enter email" required onChange={(event) => setName(event.target.value)} />
                 </div>
 
                 
                 <div className="form-group">
                     <label>Mobile</label>
-                    <input type="number" className="form-control" pattern="\d{3}[\-]\d{3}[\-]\d{4}" placeholder="Enter Mobile Number" onChange={(event) => setMobile(event.target.value)} />
+                    <input type="number" className="form-control" pattern="\d{3}[\-]\d{3}[\-]\d{4}" required placeholder="Enter Mobile Number" onChange={(event) => setMobile(event.target.value)} />
                 </div>
 
 
                 <div className="form-group">
                     <label>Email</label>
-                    <input type="email" className="form-control" placeholder="Enter email" onChange={(event) => setEmail(event.target.value)} />
+                    <input type="email" className="form-control" placeholder="Enter email" required onChange={(event) => setEmail(event.target.value)} />
                 </div>
 
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" className="form-control" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" placeholder="Enter password" onChange={(event) => setPassword(event.target.value)} />
+                    <input type="password" className="form-control" required pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" placeholder="Enter password" onChange={(event) => setPassword(event.target.value)} />
                 </div>
 
 
